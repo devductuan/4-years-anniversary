@@ -35,7 +35,7 @@ export const HomePageHero = () => {
                 timeframes...
               </p>
             </div>
-            <Button href="/anniversaries" className="mx-auto md:mx-0 my-8">Know more about me</Button>
+            <Button href="/portfolio" className="mx-auto md:mx-0 my-8">Know more about me</Button>
           </div>
         </div>
       </div>

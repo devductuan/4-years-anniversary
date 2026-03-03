@@ -19,7 +19,8 @@ export const OurStory = async () => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-bold text-center mb-8 md:mb-20">Our Story</h2>
+        <h2 className="text-2xl font-bold text-center mb-8 ">How I met my future wife</h2>
+        <p className="text-center text-gray-500 mb-8 md:mb-20">Tác giả: Nguyễn Đức Tuấn</p>
         {filenames.length > 0 ? (
           <div className="flex flex-col justify-center items-center gap-20">
             {filenames.map((filename, index) => (

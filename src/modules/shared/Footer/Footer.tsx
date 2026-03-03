@@ -6,7 +6,7 @@ export const Footer = () => {
   return (
     <>
       <hr className="w-full text-zinc-200" />
-      <footer className="py-10 h-full bg-white">
+      <footer className="py-10 h-full bg-white pb-40">
         <div className="px-4 w-full container mx-auto md:flex gap-10 justify-between">
           <div>
             <Logo src="/images/lily-logo.webp" />
