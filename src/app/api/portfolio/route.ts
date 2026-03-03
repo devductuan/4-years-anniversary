@@ -55,7 +55,7 @@ export async function GET() {
     if (err.code) details.code = err.code;
     return Response.json(
       {
-        error: "Failed to fetch portfolio",
+        error: `Failed to fetch portfolio ${message} ${process.env.AWS_ACCESS_KEY_ID} ${process.env.VERCEL_URL}`,
         message,
         ...details,
       },
