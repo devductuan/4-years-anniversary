@@ -1,26 +1,33 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-family-be-vietnam-pro: var(--font-be-vietnam-pro), ui-sans-serif, system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Register --angle so the browser can interpolate it smoothly */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.moving-gradient-bg {
+  width: 300px;
+  height: 300px;
+  --angle: 0deg;
+  background: linear-gradient(var(--angle), #ffffff, #f2c3d0);
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.markdown {
+  li {
+    margin-bottom: 0.5rem;
+    list-style-type: disc;
+  }
 }

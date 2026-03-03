@@ -1,15 +1,23 @@
+import { Footer } from "@/modules/shared/Footer/Footer";
+import { Header } from "@/modules/shared/Header/Header";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const beVietnamPro = localFont({
+  src: [
+    { path: "../../public/fonts/Be_Vietnam_Pro/BeVietnamPro-Thin.ttf", weight: "100" },
+    { path: "../../public/fonts/Be_Vietnam_Pro/BeVietnamPro-ExtraLight.ttf", weight: "200" },
+    { path: "../../public/fonts/Be_Vietnam_Pro/BeVietnamPro-Light.ttf", weight: "300" },
+    { path: "../../public/fonts/Be_Vietnam_Pro/BeVietnamPro-Regular.ttf", weight: "400" },
+    { path: "../../public/fonts/Be_Vietnam_Pro/BeVietnamPro-Medium.ttf", weight: "500" },
+    { path: "../../public/fonts/Be_Vietnam_Pro/BeVietnamPro-SemiBold.ttf", weight: "600" },
+    { path: "../../public/fonts/Be_Vietnam_Pro/BeVietnamPro-Bold.ttf", weight: "700" },
+    { path: "../../public/fonts/Be_Vietnam_Pro/BeVietnamPro-ExtraBold.ttf", weight: "800" },
+    { path: "../../public/fonts/Be_Vietnam_Pro/BeVietnamPro-Black.ttf", weight: "900" },
+  ],
+  variable: "--font-be-vietnam-pro",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -23,11 +31,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className={beVietnamPro.variable}>
+      <body className={`bg-white antialiased ${beVietnamPro.className}`}>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
