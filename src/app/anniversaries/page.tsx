@@ -16,7 +16,11 @@ export const metadata = {
 export const dynamic = "force-dynamic";
 
 function getBaseUrl() {
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  const vercel = process.env.VERCEL_URL;
+  if (vercel) {
+    if (vercel.includes("://")) return vercel;
+    return `https://${vercel}`;
+  }
   return process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
 }
 

@@ -1,6 +1,7 @@
 import { AdminHero } from "@/modules/admin/AdminHero/AdminHero";
 import { AdminRoadmap } from "@/modules/admin/AdminRoadmap/AdminRoadmap";
 import { AdminSongs } from "@/modules/admin/AdminSongs/AdminSongs";
+import { AdminPortfolio } from "@/modules/admin/AdminPortfolio/AdminPortfolio";
 
 export const metadata = {
   title: "Admin",
@@ -17,6 +18,7 @@ export default function AdminPage() {
         <AdminHero />
         <AdminSongs />
         <AdminRoadmap />
+        <AdminPortfolio />
       </main>
     </>
   );

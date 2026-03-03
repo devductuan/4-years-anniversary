@@ -4,7 +4,11 @@ import { Song } from "@/modules/anniversaries/SongPlayer/songs.type";
 
 function getBaseUrl(): string {
   if (process.env.APP_URL) return process.env.APP_URL;
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  const vercel = process.env.VERCEL_URL;
+  if (vercel) {
+    if (vercel.includes("://")) return vercel;
+    return `https://${vercel}`;
+  }
   return "http://localhost:3000";
 }
 

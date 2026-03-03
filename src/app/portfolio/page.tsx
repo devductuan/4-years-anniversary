@@ -1,107 +1,6 @@
-const about =
-  "Highly organized and skilled at managing competing demands while remaining upbeat under duress. Proven ability to meet tight timeframes. Good analytical skills, attention to detail, problem-solving, troubleshooting, communication, and multitasking ability. Also a quick learner who excels in collaborative environments as well as working independently when necessary.";
+import { getPortfolio } from "@/modules/admin/AdminPortfolio/actions";
 
-const education = [
-  {
-    school: "National Economics University (NEU) Vietnam",
-    degree: "Bachelor's degree, Public Relations",
-    period: "Sep 2019 – Dec 2022",
-    description: "Grade: 3.6/4.0",
-  },
-  {
-    school: "National Economics University (NEU) Vietnam",
-    degree: "Bachelor's degree, Economic Law",
-    period: "Sep 2020 – May 2024",
-    description: "Grade: 3.4/4.0",
-  },
-];
-
-const experience = [
-  {
-    role: "Communications Officer",
-    company: "Hanoi University of Science and Technology",
-    period: "May 2024 – Present · 1 yr 11 mos",
-    type: "Full-time",
-    link: "https://hust.edu.vn/vi/news/author/Nguyen-Thu-Hue/",
-    bullets: [
-      "Promote the university's image and raise social consciousness through content creation, including writing and editing articles.",
-      "Create and modify content for the university's communication materials.",
-      "Create methods, plans, and organizational frameworks for producing multimedia communication material.",
-      "Support organizing the university's communication operations.",
-      "Advise and assist university units with communication content.",
-    ],
-  },
-  {
-    role: "Communications Specialist",
-    company: "FECON Group",
-    period: "Aug 2023 – Apr 2024 · 9 mos",
-    type: "Full-time",
-    bullets: [
-      "Create press releases and PR articles.",
-      "Create and edit internal communication content, such as quick news, weekly newsletters, quarterly magazines, and company birthday publications.",
-      "Plan and manage internal events.",
-      "Assist with public relations.",
-    ],
-  },
-  {
-    role: "Internal Communications Specialist",
-    company: "Base.vn",
-    period: "Feb 2023 – Jul 2023 · 6 mos",
-    type: "Full-time",
-    location: "Hanoi Capital Region",
-    bullets: [
-      "Content and communication for all internal events, such as the company trip, year-end party, and International Women's Day.",
-      "Create and implement internal communications for staff, including newsletters, company news, a blog (life.base.vn), and more.",
-    ],
-  },
-  {
-    role: "Internal Communications Intern",
-    company: "Base.vn",
-    period: "Aug 2022 – Jan 2023 · 6 mos",
-    type: "Full-time",
-    bullets: ["Executing events."],
-  },
-  {
-    role: "Event Coordinator",
-    company: "Alpha Books JSC",
-    period: "Mar 2022 – Oct 2022 · 8 mos",
-    type: "Part-time",
-    bullets: [
-      "Organize two online medical events per month.",
-      "Schedule and invite guest speakers.",
-      "Prepare press release; content for the speaker.",
-      "Responsible for social media content management.",
-    ],
-  },
-];
-
-const volunteering = [
-  {
-    role: "Collaborator",
-    organization: "The ASEAN Secretariat",
-    period: "Jan 2020 – Aug 2020 · 8 mos",
-    bullets: [
-      "Volunteer at ASEAN Summit 2020 in Vietnam.",
-      "Mainly working in external relations team.",
-    ],
-  },
-];
-
-const certifications = [
-  { name: "International English Language Testing System (IELTS)", issuer: "IDP Education Ltd" },
-  { name: "Test of English for International Communication (TOEIC)", issuer: "IIG Vietnam" },
-];
-
-const skills = [
-  { name: "Communications Planning", level: "Expert" },
-  { name: "Communication", level: "Expert" },
-  { name: "Multitasking", level: "Expert" },
-  { name: "Event Management", level: "Advanced" },
-  { name: "Content Writing & Editing", level: "Expert" },
-  { name: "Problem-solving", level: "Advanced" },
-  { name: "Attention to Detail", level: "Advanced" },
-  { name: "Analytical Skills", level: "Advanced" },
-];
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Nguyễn Thu Huệ",
@@ -111,7 +10,10 @@ export const metadata = {
   }
 };
 
-const PortfolioPage = () => {
+const PortfolioPage = async () => {
+  const portfolio = await getPortfolio();
+  const { about = "", education = [], experience = [], volunteering = [], certifications = [], skills = [] } = portfolio;
+
   return (
     <div className="pt-24 pb-20 bg-white">
       <div className="container mx-auto px-4 max-w-3xl">
