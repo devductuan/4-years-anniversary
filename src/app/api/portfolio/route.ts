@@ -48,8 +48,17 @@ export async function GET() {
     return Response.json(content);
   } catch (error) {
     console.error("DynamoDB GET portfolio error:", error);
+    const message = error instanceof Error ? error.message : String(error);
+    const err = error as Error & { code?: string };
+    const details: Record<string, string> = {};
+    if (err.name) details.name = err.name;
+    if (err.code) details.code = err.code;
     return Response.json(
-      { error: "Failed to fetch portfolio" },
+      {
+        error: "Failed to fetch portfolio",
+        message,
+        ...details,
+      },
       { status: 500 }
     );
   }
@@ -78,8 +87,17 @@ export async function POST(request: NextRequest) {
     return Response.json({ success: true });
   } catch (error) {
     console.error("DynamoDB POST portfolio error:", error);
+    const message = error instanceof Error ? error.message : String(error);
+    const err = error as Error & { code?: string };
+    const details: Record<string, string> = {};
+    if (err.name) details.name = err.name;
+    if (err.code) details.code = err.code;
     return Response.json(
-      { error: "Failed to save portfolio" },
+      {
+        error: "Failed to save portfolio",
+        message,
+        ...details,
+      },
       { status: 500 }
     );
   }
