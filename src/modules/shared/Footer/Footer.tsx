@@ -33,7 +33,7 @@ export const Footer = () => {
               <li>
                 <Link
                   target="_blank"
-                  href="https://thuhuenguyen.com/anni">
+                  href="https://thuhuecuaanh.netlify.app/">
                   Second Anniversary
                 </Link>
               </li>

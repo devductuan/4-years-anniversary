@@ -17,8 +17,6 @@ function getBaseUrl(): string {
 export async function getPortfolio(): Promise<PortfolioData> {
   const base = getBaseUrl();
   const res = await fetch(`${base}/api/portfolio`, { cache: "no-store" });
-  console.log(base)
-  console.log(res)
   if (!res.ok) {
     throw new Error("Failed to fetch portfolio");
   }

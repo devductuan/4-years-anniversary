@@ -4,7 +4,7 @@ import { GradientBackground } from "@/modules/shared/GradientBackground/Gradient
 
 export const HomePageHero = () => {
   return (
-    <section className="overflow-hidden w-full h-screen mt-20 md:mt-0">
+    <section className="relative overflow-x-hidden w-full xl:h-screen py-20 px-4">
       <GradientBackground />
       <div className="h-full flex flex-col md:flex-row items-center justify-center gap-4 md:gap-20">
         <div className="relative ">
@@ -28,7 +28,7 @@ export const HomePageHero = () => {
             <p className="text-right text-sm text-gray-500 text-lg md:text-left">
               Communications Officer
             </p>
-            <div className="text-left italic text-sm text-gray-500 flex flex-col gap-4 mt-20 px-4 max-w-sm md:p-0 md:mt-6">
+            <div className="text-left italic text-sm text-gray-500 flex flex-col gap-4 px-4 mt-8 max-w-sm md:p-0 md:mt-6">
               <p>
                 Highly organized and skilled at managing competing demands while
                 remaining upbeat under duress. Proven ability to meet tight
