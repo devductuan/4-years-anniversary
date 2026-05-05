@@ -1,6 +1,8 @@
 import Image from "next/image";
-import { Button } from "@/modules/shared/Button/Button";
 import { GradientBackground } from "@/modules/shared/GradientBackground/GradientBackground";
+import { PortfolioScrollButton } from "./PortfolioScrollButton";
+import { APP_SETTINGS } from "@/modules/tools/settings";
+import { Button } from "@/modules/shared/Button/Button";
 
 export const HomePageHero = () => {
   return (
@@ -35,7 +37,15 @@ export const HomePageHero = () => {
                 timeframes...
               </p>
             </div>
-            <Button href="/portfolio" className="mx-auto md:mx-0 my-8">Know more about me</Button>
+            {APP_SETTINGS.lockPersonalPages ? (
+              <PortfolioScrollButton />
+            ) : (
+              <Button
+                href="#portfolio"
+                className="mx-auto md:mx-0 my-8">
+                Know more about me
+              </Button>
+            )}
           </div>
         </div>
       </div>

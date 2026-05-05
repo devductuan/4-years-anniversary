@@ -5,6 +5,7 @@ import { Logo } from "../Logo/Logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "../Button/Button";
+import { APP_SETTINGS } from "@/modules/tools/settings";
 
 const SCROLL_THRESHOLD = 10;
 
@@ -29,26 +30,36 @@ export const Header = () => {
       }`}>
       <div className="flex items-center flex-wrap gap-x-10 md:gap-x-20">
         <Logo src="/images/lily-logo.webp" />
-        <ul className="flex gap-4 items-center font-bold text-sm md:gap-10">
-          <li>
-            <Link
-              href="/anniversaries"
-              className={pathname === "/anniversaries" ? "text-pink-500" : ""}>
-              Anniversaries
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/portfolio"
-              className={pathname === "/portfolio" ? "text-pink-500" : ""}>
-              Portfolio
-            </Link>
-          </li>
-        </ul>
+        {APP_SETTINGS.lockPersonalPages ? null : (
+          <ul className="flex gap-4 items-center font-bold text-sm md:gap-10">
+            <li>
+              <Link
+                href="/anniversaries"
+                className={
+                  pathname === "/anniversaries" ? "text-pink-500" : ""
+                }>
+                Anniversaries
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/portfolio"
+                className={pathname === "/portfolio" ? "text-pink-500" : ""}>
+                Portfolio
+              </Link>
+            </li>
+          </ul>
+        )}
       </div>
-      <div>
-        <Button href="/admin" className="text-sm">Admin</Button>
-      </div>
+      {APP_SETTINGS.lockPersonalPages ? null : (
+        <div>
+          <Button
+            href="/admin"
+            className="text-sm">
+            Admin
+          </Button>
+        </div>
+      )}
     </header>
   );
 };

@@ -4,6 +4,10 @@
   --font-family-be-vietnam-pro: var(--font-be-vietnam-pro), ui-sans-serif, system-ui, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Register --angle so the browser can interpolate it smoothly */
 @property --angle {
   syntax: "<angle>";

@@ -15,7 +15,7 @@ const PortfolioPage = async () => {
   const { about = "", education = [], experience = [], volunteering = [], certifications = [], skills = [] } = portfolio;
 
   return (
-    <div className="pt-24 pb-20 bg-white">
+    <div className="pt-24 pb-20 bg-white" id="portfolio">
       <div className="container mx-auto px-4 max-w-3xl">
         {/* Page title */}
         <section className="mb-16 text-center">
