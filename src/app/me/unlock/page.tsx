@@ -6,7 +6,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 function UnlockForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const from = searchParams.get("from") || "/anniversaries";
+  const requestedFrom = searchParams.get("from") || "/me";
+  const from = requestedFrom.startsWith("/me") ? requestedFrom : "/me";
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);

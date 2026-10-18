@@ -34,9 +34,9 @@ export const Header = () => {
           <ul className="flex gap-4 items-center font-bold text-sm md:gap-10">
             <li>
               <Link
-                href="/anniversaries"
+                href="/me/anniversaries"
                 className={
-                  pathname === "/anniversaries" ? "text-pink-500" : ""
+                  pathname === "/me/anniversaries" ? "text-pink-500" : ""
                 }>
                 Anniversaries
               </Link>
@@ -54,7 +54,7 @@ export const Header = () => {
       {APP_SETTINGS.lockPersonalPages ? null : (
         <div>
           <Button
-            href="/admin"
+            href="/me/admin"
             className="text-sm">
             Admin
           </Button>

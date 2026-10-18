@@ -5,16 +5,14 @@ const ANNIVERSARIES_AUTH_VALUE = "1";
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const isAnniversariesRoute = pathname.startsWith("/anniversaries");
-  const isAdminRoute = pathname.startsWith("/admin");
-  const isUnlockRoute = pathname.startsWith("/anniversaries/unlock") || pathname.startsWith("/admin/unlock");
+  const isMeRoute = pathname === "/me" || pathname.startsWith("/me/");
+  const isUnlockRoute = pathname === "/me/unlock";
 
   // Protect private routes but allow their unlock pages.
-  if ((isAnniversariesRoute || isAdminRoute) && !isUnlockRoute) {
+  if (isMeRoute && !isUnlockRoute) {
     const auth = request.cookies.get(ANNIVERSARIES_AUTH_COOKIE)?.value;
     if (auth !== ANNIVERSARIES_AUTH_VALUE) {
-      const unlockPath = isAdminRoute ? "/admin/unlock" : "/anniversaries/unlock";
-      const unlockUrl = new URL(unlockPath, request.url);
+      const unlockUrl = new URL("/me/unlock", request.url);
       unlockUrl.searchParams.set("from", pathname);
       return NextResponse.redirect(unlockUrl);
     }
@@ -24,5 +22,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/anniversaries", "/anniversaries/:path*", "/admin", "/admin/:path*"],
+  matcher: ["/me", "/me/:path*"],
 };
